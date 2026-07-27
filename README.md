@@ -41,6 +41,38 @@ meu-projeto-web/
 └── README.md
 ```
 
+## Entrega Parcial 2
+
+Nesta etapa foi implementada a base arquitetural da aplicação MentoriaGestor.
+
+### Funcionalidades implementadas
+
+- Estrutura MVC;
+- Controller-base para carregamento das views;
+- Sistema de rotas;
+- Página inicial da aplicação;
+- Controllers iniciais de alunos, concursos, disciplinas e relatórios;
+- Views iniciais compartilhando cabeçalho e rodapé;
+- Rotas para alunos, concursos, disciplinas e relatórios;
+- Tratamento de rota inexistente com erro 404;
+- Interface web responsiva;
+- Redirecionamento de URLs por meio do arquivo `.htaccess`.
+
+### Rotas implementadas
+
+```text
+/              Página inicial
+/alunos        Gestão inicial de alunos
+/concursos     Gestão inicial de concursos
+/disciplinas   Gestão inicial de disciplinas
+/relatorios    Gestão inicial de relatórios
+
+Execução local
+1. Instalar e iniciar o Apache pelo XAMPP;
+2. Colocar a pasta do projeto dentro de C:\xampp\htdocs;
+3. Acessar no navegador:
+http://localhost/meu-projeto-web/public/
+
 ## Autor
 
 Ronielly Santana
