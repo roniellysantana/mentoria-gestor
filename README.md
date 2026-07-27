@@ -71,8 +71,9 @@ Execução local
 1. Instalar e iniciar o Apache pelo XAMPP;
 2. Colocar a pasta do projeto dentro de C:\xampp\htdocs;
 3. Acessar no navegador:
+```text
 http://localhost/meu-projeto-web/public/
-
+```
 ## Autor
 
 Ronielly Santana
