@@ -5,7 +5,9 @@
             <p>Gerenciamento dos alunos cadastrados na mentoria.</p>
         </div>
 
-        <a class="botao" href="#">Cadastrar aluno</a>
+        <a class="botao" href="/meu-projeto-web/public/alunos/criar">
+            Cadastrar aluno
+        </a>
     </div>
 
     <div class="tabela-container">
@@ -21,13 +23,45 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>Aluno demonstrativo</td>
-                    <td>Polícia Científica</td>
-                    <td>Semestral</td>
-                    <td>20 sessões</td>
-                    <td><span class="status ativo">Ativo</span></td>
-                </tr>
+                <?php if (empty($alunos)): ?>
+
+                    <tr>
+                        <td colspan="5">
+                            Nenhum aluno cadastrado.
+                        </td>
+                    </tr>
+
+                <?php else: ?>
+
+                    <?php foreach ($alunos as $aluno): ?>
+
+                        <tr>
+                            <td>
+                                <?= htmlspecialchars($aluno['nome']) ?>
+                            </td>
+
+                            <td>
+                                <?= htmlspecialchars($aluno['concurso_alvo']) ?>
+                            </td>
+
+                            <td>
+                                <?= ucfirst(htmlspecialchars($aluno['plano'])) ?>
+                            </td>
+
+                            <td>
+                                <?= (int) $aluno['meta_semanal_sessoes'] ?> sessões
+                            </td>
+
+                            <td>
+                                <span class="status <?= $aluno['status'] === 'ativo' ? 'ativo' : '' ?>">
+                                    <?= ucfirst(htmlspecialchars($aluno['status'])) ?>
+                                </span>
+                            </td>
+                        </tr>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

@@ -9,6 +9,11 @@ class Router
         $this->routes['GET'][$path] = $handler;
     }
 
+    public function post(string $path, array $handler): void
+    {
+        $this->routes['POST'][$path] = $handler;
+    }
+
     public function dispatch(string $requestMethod, string $requestUri): void
     {
         $path = parse_url($requestUri, PHP_URL_PATH);

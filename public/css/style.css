@@ -187,3 +187,47 @@ main.container {
         gap: 15px;
     }
 }
+
+.formulario {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    padding: 25px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.campo label {
+    color: #1f3c5b;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.campo input,
+.campo select {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.acoes-formulario {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button.botao {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao-secundario {
+    background-color: #6c757d;
+}

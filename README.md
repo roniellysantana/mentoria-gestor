@@ -1,85 +1,134 @@
-# MentoriaGestor
+# 🚀 Projeto Integrador – Disciplina: Projeto e Implementação de Sistemas para Web II
 
-Sistema de Gestão e Acompanhamento de Mentoria para Concursos.
+Bem-vindos ao repositório base do Projeto Integrador! Este documento reúne todas as diretrizes, requisitos mínimos, cronograma de entregas e critérios de avaliação necessários para o desenvolvimento do projeto ao longo do semestre.
 
-## Sobre o projeto
+---
 
-O MentoriaGestor é uma aplicação web criada para centralizar o acompanhamento de alunos de mentoria para concursos públicos. O sistema permitirá gerenciar alunos, concursos-alvo, disciplinas, metas semanais de sessões, planos contratados e relatórios periódicos.
+## 📅 Apresentação e Dinâmica de Trabalho
+O objetivo do Projeto Integrador é proporcionar uma experiência prática de desenvolvimento de aplicações web completas e funcionais, aplicando de forma incremental os conhecimentos adquiridos na disciplina.
 
-## Funcionalidades previstas
+* **Formação de Equipes:** O projeto deve ser desenvolvido em duplas (ou individualmente, conforme autorização), definidas nas semanas iniciais.
+* **Desenvolvimento Incremental:** O sistema será construído gradualmente. Cada entrega parcial servirá como base direta para a etapa seguinte.
+* **Temas Livres:** As equipes têm liberdade para escolher o escopo do sistema (Ex: Controle de Estoque, Gestão Escolar, Clínicas, Eventos, Finanças), desde que validado previamente com o professor.
 
-- Cadastro e gerenciamento de alunos;
-- Cadastro de concursos e disciplinas;
-- Associação de disciplinas aos alunos;
-- Definição da meta semanal de sessões;
-- Controle dos planos trimestral, semestral e anual;
-- Cálculo automático da vigência da mentoria;
-- Relatórios semanais dos alunos;
-- Relatórios quinzenais do mentor;
-- Upload e consulta de arquivos;
-- Painel de acompanhamento;
-- Autenticação e controle de acesso por perfil.
+---
 
-## Tecnologias
+## 🛠️ Tecnologias Obrigatórias
+Para a construção do ecossistema de software, todas as equipes deverão utilizar estritamente o seguinte *tech stack*:
 
-- PHP;
-- Arquitetura MVC;
-- MySQL ou PostgreSQL;
-- PDO;
-- HTML, CSS e JavaScript;
-- Git e GitHub;
-- XAMPP, WAMP ou Docker.
+* **Backend:** PHP (Orientado a Objetos).
+* **Arquitetura:** MVC (*Model-View-Controller*).
+* **Banco de Dados:** PostgreSQL ou MySQL.
+* **Controle de Versão:** Git & GitHub.
+* **Ambiente Local:** Docker, XAMPP ou WampServer.
 
-## Estrutura inicial
+---
 
-```text
-meu-projeto-web/
-├── app/
-├── config/
-├── core/
-├── public/
-└── README.md
-```
+## 📋 Requisitos Mínimos do Sistema
+Independentemente do tema escolhido, a versão final da aplicação deverá conter:
 
-## Entrega Parcial 2
+- [ ] Arquitetura MVC devidamente isolada e estruturada.
+- [ ] Mecanismo de persistência conectado via PDO a um Banco de Dados Relacional.
+- [ ] Sistema próprio de gerenciamento de Rotas amigáveis.
+- [ ] Operações CRUD completas para a entidade principal do escopo.
+- [ ] Filtros e Validação robusta de formulários.
+- [ ] Sistema de Autenticação completo (*Login* e *Logout*).
+- [ ] Controle de Sessões ativo e persistência de estado segura.
+- [ ] Controle de acesso baseado em Perfis (Mínimo: *Administrador* e *Usuário Comum*).
+- [ ] Funcionalidade de manipulação e *upload* de arquivos.
+- [ ] Mecanismos adequados de tratamento de erros, exceções e segurança de dados.
+- [ ] Interface web responsiva, amigável e funcional.
+- [ ] *Deploy* da aplicação realizado em servidor ou ambiente de nuvem público.
 
-Nesta etapa foi implementada a base arquitetural da aplicação MentoriaGestor.
+---
+
+## ⏱️ Cronograma e Pontuação das Entregas
+
+| Etapa | Foco da Entrega | Prazo Estimado |
+| :--- | :--- | :--- | :--- |
+| **Entrega Parcial 1** | Planejamento, Modelagem (MER/DER) e Protótipos | Semana 3 |
+| **Entrega Parcial 2** | Estrutura MVC Inicial e Sistema de Rotas | Semana 5 |
+| **Entrega Parcial 3** | Conexão de Banco de Dados (PDO) e CRUD Inicial (C e R) | Semana 7 |
+| **Entrega Parcial 4** | CRUD Completo da Entidade (C, R, U, D) e Validações | Semana 9 |
+| **Entrega Parcial 5** | Sessões, Autenticação de Usuários e Níveis de Acesso | Semana 12 |
+| **Projeto Final** | Sistema Completo, Documentação (*Manual*) e Vídeo de Demonstração | Semana 16 |
+
+---
+
+## ⚖️ Critérios Gerais de Avaliação
+
+A nota final do ecossistema de software desenvolvido considerará a seguinte distribuição de pesos técnicos 383]:
+
+* **Funcionalidade da Aplicação (40%):** O sistema cumpre o escopo proposto sem falhas técnicas ou bugs impeditivos? 
+* **Arquitetura MVC (20%):** Há separação estrita de responsabilidades entre as camadas de controle, dados e visualização? 
+* **Banco de Dados (15%):** A modelagem física atende à terceira forma normal? As consultas via PDO utilizam boas práticas contra injeção de código? 
+* **Segurança (10%):** Senhas estão devidamente hasheadas? Rotas sensíveis estão protegidas contra acessos não autenticados? 
+* **Interface e Usabilidade (5%):** A experiência do usuário é fluida, clara e com tratamento visual agradável? 
+* **Documentação (10%):** O projeto possui manuais claros e código bem estruturado? 
+
+---
+
+## ⚠️ Regras Essenciais do Repositório
+
+> 🛑 **Atenção:**
+
+> 1. **Histórico de Commits:** Todas as entregas são cumulativas. O código-fonte deve ser mantido e atualizado obrigatoriamente neste repositório durante todo o semestre acadêmico.
+
+> 2. **Evolução Contínua:** Repositórios estagnados que apresentarem atualizações massivas apenas em datas de entrega sem histórico de evolução orgânica estarão sujeitos a severas penalizações na nota.
+
+> 3. **Prazo Extrapolado:** Entregas atrasadas estarão sujeitas aos fatores de desconto previamente estipulados em contrato pedagógico.
+
+## Entrega Parcial 3
+
+Nesta etapa foi implementado o CRUD inicial da entidade principal do sistema, o aluno.
 
 ### Funcionalidades implementadas
 
-- Estrutura MVC;
-- Controller-base para carregamento das views;
-- Sistema de rotas;
-- Página inicial da aplicação;
-- Controllers iniciais de alunos, concursos, disciplinas e relatórios;
-- Views iniciais compartilhando cabeçalho e rodapé;
-- Rotas para alunos, concursos, disciplinas e relatórios;
-- Tratamento de rota inexistente com erro 404;
-- Interface web responsiva;
-- Redirecionamento de URLs por meio do arquivo `.htaccess`.
+- Conexão com o banco de dados utilizando PDO;
+- Banco de dados `mentoria_gestor`;
+- Tabela `alunos`;
+- Model `Aluno`;
+- Cadastro de novos alunos;
+- Listagem dos alunos cadastrados;
+- Persistência dos dados no banco;
+- Formulário para cadastro de aluno;
+- Redirecionamento para a listagem após o cadastro.
 
-### Rotas implementadas
+### Dados cadastrados para o aluno
+
+- Nome;
+- E-mail;
+- Telefone;
+- Concurso-alvo;
+- Meta semanal de sessões;
+- Data de início da mentoria;
+- Plano trimestral, semestral ou anual;
+- Situação do aluno.
+
+### Banco de dados
+
+O script para criação do banco e da tabela está disponível em:
 
 ```text
-/              Página inicial
-/alunos        Gestão inicial de alunos
-/concursos     Gestão inicial de concursos
-/disciplinas   Gestão inicial de disciplinas
-/relatorios    Gestão inicial de relatórios
+database/mentoria_gestor.sql
+```
 
-Execução local
-1. Instalar e iniciar o Apache pelo XAMPP;
-2. Colocar a pasta do projeto dentro de C:\xampp\htdocs;
-3. Acessar no navegador:
+Para executar o projeto localmente:
+
+1. Iniciar Apache e MySQL pelo XAMPP;
+2. Importar o arquivo `database/mentoria_gestor.sql` pelo phpMyAdmin;
+3. Colocar o projeto dentro de `C:\xampp\htdocs`;
+4. Acessar:
+
+```text
 http://localhost/meu-projeto-web/public/
 ```
-## Autor
 
-Ronielly Santana
+### CRUD implementado nesta etapa
 
-## Disciplina
+```text
+Create  → Cadastro de aluno
+Read    → Listagem dos alunos cadastrados
+```
 
-Projeto e Implementação de Sistemas para Web II  
-Professor: Pedro Henrique Neves da Silva  
-UNIVASF - Análise e Desenvolvimento de Sistemas  
-Petrolina - PE, 2026
+As operações de atualização e exclusão serão implementadas nas próximas etapas do projeto.
