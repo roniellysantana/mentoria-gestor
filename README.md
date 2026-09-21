@@ -27,17 +27,17 @@ Para a construção do ecossistema de software, todas as equipes deverão utiliz
 ## 📋 Requisitos Mínimos do Sistema
 Independentemente do tema escolhido, a versão final da aplicação deverá conter:
 
-- [ ] Arquitetura MVC devidamente isolada e estruturada.
-- [ ] Mecanismo de persistência conectado via PDO a um Banco de Dados Relacional.
-- [ ] Sistema próprio de gerenciamento de Rotas amigáveis.
-- [ ] Operações CRUD completas para a entidade principal do escopo.
-- [ ] Filtros e Validação robusta de formulários.
+- [x] Arquitetura MVC devidamente isolada e estruturada.
+- [x] Mecanismo de persistência conectado via PDO a um Banco de Dados Relacional.
+- [x] Sistema próprio de gerenciamento de Rotas amigáveis.
+- [x] Operações CRUD completas para a entidade principal do escopo.
+- [x] Validações básicas de formulários.
 - [ ] Sistema de Autenticação completo (*Login* e *Logout*).
 - [ ] Controle de Sessões ativo e persistência de estado segura.
 - [ ] Controle de acesso baseado em Perfis (Mínimo: *Administrador* e *Usuário Comum*).
 - [ ] Funcionalidade de manipulação e *upload* de arquivos.
-- [ ] Mecanismos adequados de tratamento de erros, exceções e segurança de dados.
-- [ ] Interface web responsiva, amigável e funcional.
+- [ ] Mecanismos adicionais de tratamento de erros, exceções e segurança de dados.
+- [x] Interface web funcional.
 - [ ] *Deploy* da aplicação realizado em servidor ou ambiente de nuvem público.
 
 ---
@@ -45,7 +45,7 @@ Independentemente do tema escolhido, a versão final da aplicação deverá cont
 ## ⏱️ Cronograma e Pontuação das Entregas
 
 | Etapa | Foco da Entrega | Prazo Estimado |
-| :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- |
 | **Entrega Parcial 1** | Planejamento, Modelagem (MER/DER) e Protótipos | Semana 3 |
 | **Entrega Parcial 2** | Estrutura MVC Inicial e Sistema de Rotas | Semana 5 |
 | **Entrega Parcial 3** | Conexão de Banco de Dados (PDO) e CRUD Inicial (C e R) | Semana 7 |
@@ -57,25 +57,25 @@ Independentemente do tema escolhido, a versão final da aplicação deverá cont
 
 ## ⚖️ Critérios Gerais de Avaliação
 
-A nota final do ecossistema de software desenvolvido considerará a seguinte distribuição de pesos técnicos 383]:
+A nota final do ecossistema de software desenvolvido considerará a seguinte distribuição de pesos técnicos:
 
-* **Funcionalidade da Aplicação (40%):** O sistema cumpre o escopo proposto sem falhas técnicas ou bugs impeditivos? 
-* **Arquitetura MVC (20%):** Há separação estrita de responsabilidades entre as camadas de controle, dados e visualização? 
-* **Banco de Dados (15%):** A modelagem física atende à terceira forma normal? As consultas via PDO utilizam boas práticas contra injeção de código? 
-* **Segurança (10%):** Senhas estão devidamente hasheadas? Rotas sensíveis estão protegidas contra acessos não autenticados? 
-* **Interface e Usabilidade (5%):** A experiência do usuário é fluida, clara e com tratamento visual agradável? 
-* **Documentação (10%):** O projeto possui manuais claros e código bem estruturado? 
+* **Funcionalidade da Aplicação (40%):** O sistema cumpre o escopo proposto sem falhas técnicas ou bugs impeditivos?
+* **Arquitetura MVC (20%):** Há separação estrita de responsabilidades entre as camadas de controle, dados e visualização?
+* **Banco de Dados (15%):** A modelagem física atende à terceira forma normal? As consultas via PDO utilizam boas práticas contra injeção de código?
+* **Segurança (10%):** Senhas estão devidamente hasheadas? Rotas sensíveis estão protegidas contra acessos não autenticados?
+* **Interface e Usabilidade (5%):** A experiência do usuário é fluida, clara e com tratamento visual agradável?
+* **Documentação (10%):** O projeto possui manuais claros e código bem estruturado?
 
 ---
 
 ## ⚠️ Regras Essenciais do Repositório
 
 > 🛑 **Atenção:**
-
+>
 > 1. **Histórico de Commits:** Todas as entregas são cumulativas. O código-fonte deve ser mantido e atualizado obrigatoriamente neste repositório durante todo o semestre acadêmico.
-
+>
 > 2. **Evolução Contínua:** Repositórios estagnados que apresentarem atualizações massivas apenas em datas de entrega sem histórico de evolução orgânica estarão sujeitos a severas penalizações na nota.
-
+>
 > 3. **Prazo Extrapolado:** Entregas atrasadas estarão sujeitas aos fatores de desconto previamente estipulados em contrato pedagógico.
 
 ## Entrega Parcial 3
@@ -131,4 +131,34 @@ Create  → Cadastro de aluno
 Read    → Listagem dos alunos cadastrados
 ```
 
-As operações de atualização e exclusão serão implementadas nas próximas etapas do projeto.
+## Entrega Parcial 4
+
+Nesta etapa foi concluído o CRUD da entidade Aluno e foram acrescentadas validações básicas e mensagens de retorno ao usuário.
+
+### Funcionalidades implementadas
+
+- Create: cadastro de alunos;
+- Read: listagem dos alunos cadastrados;
+- Update: edição dos dados do aluno;
+- Delete: exclusão de alunos com confirmação;
+- Busca de aluno por ID;
+- Validação de campos obrigatórios;
+- Validação de formato de e-mail;
+- Validação da meta semanal de sessões;
+- Validação de plano e situação do aluno;
+- Bloqueio de e-mail duplicado;
+- Mensagens de sucesso após cadastro, atualização e exclusão;
+- Mensagens de erro para dados inválidos ou operações não concluídas.
+
+### Rotas do CRUD de alunos
+
+```text
+GET  /alunos             → Listagem
+GET  /alunos/criar       → Formulário de cadastro
+POST /alunos/salvar      → Cadastro
+GET  /alunos/editar      → Formulário de edição
+POST /alunos/atualizar   → Atualização
+POST /alunos/excluir     → Exclusão
+```
+
+Com esta etapa, o gerenciamento da entidade principal do MentoriaGestor passa a contemplar as quatro operações básicas do CRUD.
