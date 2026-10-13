@@ -35,10 +35,10 @@ Independentemente do tema escolhido, a versão final da aplicação deverá cont
 - [x] Sistema de Autenticação completo (*Login* e *Logout*).
 - [x] Controle de Sessões ativo e persistência de estado segura.
 - [x] Controle de acesso baseado em Perfis (Mínimo: *Administrador* e *Usuário Comum*).
-- [ ] Funcionalidade de manipulação e *upload* de arquivos.
-- [ ] Mecanismos adicionais de tratamento de erros, exceções e segurança de dados.
+- [x] Funcionalidade de manipulação e *upload* de arquivos.
+- [x] Mecanismos adicionais de tratamento de erros, exceções e segurança de dados.
 - [x] Interface web funcional.
-- [ ] *Deploy* da aplicação realizado em servidor ou ambiente de nuvem público.
+- [x] *Deploy* da aplicação realizado em servidor ou ambiente de nuvem público.
 
 ---
 
@@ -196,3 +196,35 @@ GET  /logout  → Encerramento da sessão
 O sistema utiliza sessão para identificar o usuário autenticado e seu perfil. Usuários não autenticados são direcionados para a tela de login. Áreas restritas verificam também o perfil do usuário antes de permitir o acesso.
 
 Com esta etapa, o MentoriaGestor passa a contar com autenticação, sessões, perfis de usuário e proteção de rotas.
+
+
+## Projeto Final
+
+A versão final do MentoriaGestor reúne as funcionalidades desenvolvidas ao longo das entregas parciais e está publicada em ambiente online.
+
+### Funcionalidades concluídas
+
+- CRUD completo de alunos;
+- Validações de formulários e mensagens de retorno;
+- Login e logout;
+- Controle de sessão;
+- Perfis de usuário: administrador, mentor e aluno;
+- Proteção de rotas conforme autenticação e perfil;
+- Senhas armazenadas com hash;
+- Upload de Edital em PDF;
+- Upload de Plano de ação em PDF;
+- Validação de tipo e tamanho dos arquivos enviados;
+- Banco de dados MySQL;
+- Deploy em hospedagem pública.
+
+### Acesso ao sistema publicado
+
+```text
+https://mentoriagestor.rf.gd/public/
+```
+
+### Segurança das configurações de produção
+
+As credenciais reais do banco de dados utilizado no ambiente online não são versionadas no repositório. O arquivo disponível no GitHub permanece configurado para o ambiente local de desenvolvimento.
+
+Os arquivos PDF enviados pelos usuários também não são versionados no repositório. A pasta `public/uploads` contém um arquivo `.gitignore` para impedir a publicação desses documentos.
