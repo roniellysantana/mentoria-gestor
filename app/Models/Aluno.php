@@ -89,7 +89,9 @@ class Aluno
                 meta_semanal_sessoes = :meta_semanal_sessoes,
                 data_inicio = :data_inicio,
                 plano = :plano,
-                status = :status
+                status = :status,
+                edital_arquivo = :edital_arquivo,
+                plano_acao_arquivo = :plano_acao_arquivo
             WHERE id = :id
         ";
 
@@ -104,7 +106,9 @@ class Aluno
             ':meta_semanal_sessoes' => $dados['meta_semanal_sessoes'],
             ':data_inicio' => $dados['data_inicio'],
             ':plano' => $dados['plano'],
-            ':status' => $dados['status']
+            ':status' => $dados['status'],
+            ':edital_arquivo' => $dados['edital_arquivo'],
+            ':plano_acao_arquivo' => $dados['plano_acao_arquivo']
         ]);
     }
 
