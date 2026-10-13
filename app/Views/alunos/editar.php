@@ -22,6 +22,7 @@
         class="formulario"
         method="POST"
         action="/meu-projeto-web/public/alunos/atualizar"
+        enctype="multipart/form-data"
     >
 
         <input
@@ -131,6 +132,52 @@
                     Inativo
                 </option>
             </select>
+        </div>
+
+        <div class="campo">
+            <label for="edital">Edital (PDF)</label>
+
+            <?php if (!empty($aluno['edital_arquivo'])): ?>
+                <p>
+                    Arquivo atual:
+                    <a
+                        href="/meu-projeto-web/public/uploads/<?= htmlspecialchars($aluno['edital_arquivo']) ?>"
+                        target="_blank"
+                    >
+                        Visualizar edital
+                    </a>
+                </p>
+            <?php endif; ?>
+
+            <input
+                type="file"
+                id="edital"
+                name="edital"
+                accept=".pdf,application/pdf"
+            >
+        </div>
+
+        <div class="campo">
+            <label for="plano_acao">Plano de ação (PDF)</label>
+
+            <?php if (!empty($aluno['plano_acao_arquivo'])): ?>
+                <p>
+                    Arquivo atual:
+                    <a
+                        href="/meu-projeto-web/public/uploads/<?= htmlspecialchars($aluno['plano_acao_arquivo']) ?>"
+                        target="_blank"
+                    >
+                        Visualizar plano de ação
+                    </a>
+                </p>
+            <?php endif; ?>
+
+            <input
+                type="file"
+                id="plano_acao"
+                name="plano_acao"
+                accept=".pdf,application/pdf"
+            >
         </div>
 
         <div class="acoes-formulario">
