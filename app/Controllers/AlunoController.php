@@ -6,6 +6,8 @@ class AlunoController extends Controller
 
     public function __construct()
     {
+        Auth::exigirPerfil(['administrador', 'mentor']);
+
         $database = new Database();
         $conexao = $database->conectar();
 
