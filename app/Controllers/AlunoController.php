@@ -107,8 +107,19 @@ class AlunoController extends Controller
 
     public function atualizar(): void
     {
+        $id = (int) ($_POST['id'] ?? 0);
+
+        $alunoAtual = $this->alunoModel->buscarPorId($id);
+
+        if (!$alunoAtual) {
+            $this->redirecionar(
+                'Aluno não encontrado.',
+                'erro'
+            );
+        }
+
         $dados = [
-            'id' => (int) ($_POST['id'] ?? 0),
+            'id' => $id,
             'nome' => trim($_POST['nome'] ?? ''),
             'email' => trim($_POST['email'] ?? ''),
             'telefone' => trim($_POST['telefone'] ?? ''),
@@ -116,7 +127,9 @@ class AlunoController extends Controller
             'meta_semanal_sessoes' => (int) ($_POST['meta_semanal_sessoes'] ?? 0),
             'data_inicio' => $_POST['data_inicio'] ?? '',
             'plano' => $_POST['plano'] ?? '',
-            'status' => $_POST['status'] ?? ''
+            'status' => $_POST['status'] ?? '',
+            'edital_arquivo' => $alunoAtual['edital_arquivo'] ?? null,
+            'plano_acao_arquivo' => $alunoAtual['plano_acao_arquivo'] ?? null
         ];
 
         $erros = $this->validarDados($dados);
@@ -130,6 +143,22 @@ class AlunoController extends Controller
             $this->alunoModel->emailExiste($dados['email'], $dados['id'])
         ) {
             $erros[] = 'Já existe outro aluno cadastrado com este e-mail.';
+        }
+
+        if (empty($erros)) {
+            $dados['edital_arquivo'] = $this->processarUpload(
+                'edital',
+                'edital',
+                $dados['edital_arquivo'],
+                $erros
+            );
+
+            $dados['plano_acao_arquivo'] = $this->processarUpload(
+                'plano_acao',
+                'plano_acao',
+                $dados['plano_acao_arquivo'],
+                $erros
+            );
         }
 
         if (!empty($erros)) {
@@ -181,6 +210,61 @@ class AlunoController extends Controller
                 'erro'
             );
         }
+    }
+
+    private function processarUpload(
+        string $campo,
+        string $prefixo,
+        ?string $arquivoAtual,
+        array &$erros
+    ): ?string {
+        if (
+            !isset($_FILES[$campo]) ||
+            $_FILES[$campo]['error'] === UPLOAD_ERR_NO_FILE
+        ) {
+            return $arquivoAtual;
+        }
+
+        $arquivo = $_FILES[$campo];
+
+        if ($arquivo['error'] !== UPLOAD_ERR_OK) {
+            $erros[] = 'Ocorreu um erro ao enviar o arquivo.';
+            return $arquivoAtual;
+        }
+
+        $limite = 5 * 1024 * 1024;
+
+        if ($arquivo['size'] > $limite) {
+            $erros[] = 'O arquivo PDF deve ter no máximo 5 MB.';
+            return $arquivoAtual;
+        }
+
+        $extensao = strtolower(
+            pathinfo($arquivo['name'], PATHINFO_EXTENSION)
+        );
+
+        $tipoMime = mime_content_type($arquivo['tmp_name']);
+
+        if (
+            $extensao !== 'pdf' ||
+            $tipoMime !== 'application/pdf'
+        ) {
+            $erros[] = 'Somente arquivos PDF são permitidos.';
+            return $arquivoAtual;
+        }
+
+        $nomeArquivo = $prefixo . '_' . bin2hex(random_bytes(8)) . '.pdf';
+
+        $pastaUploads = __DIR__ . '/../../public/uploads/';
+
+        $destino = $pastaUploads . $nomeArquivo;
+
+        if (!move_uploaded_file($arquivo['tmp_name'], $destino)) {
+            $erros[] = 'Não foi possível salvar o arquivo enviado.';
+            return $arquivoAtual;
+        }
+
+        return $nomeArquivo;
     }
 
     private function validarDados(array $dados): array
