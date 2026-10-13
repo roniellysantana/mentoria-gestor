@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS alunos (
     data_inicio DATE NOT NULL,
     plano ENUM('trimestral', 'semestral', 'anual') NOT NULL,
     status ENUM('ativo', 'inativo') NOT NULL DEFAULT 'ativo',
+    edital_arquivo VARCHAR(255) NULL,
+    plano_acao_arquivo VARCHAR(255) NULL,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
