@@ -17,13 +17,33 @@
     <div class="container">
         <h1 class="logo">MentoriaGestor</h1>
 
-        <nav class="menu">
-            <a href="/meu-projeto-web/public/">Início</a>
-            <a href="/meu-projeto-web/public/alunos">Alunos</a>
-            <a href="/meu-projeto-web/public/concursos">Concursos</a>
-            <a href="/meu-projeto-web/public/disciplinas">Disciplinas</a>
-            <a href="/meu-projeto-web/public/relatorios">Relatórios</a>
-        </nav>
+        <?php if (isset($_SESSION['usuario'])): ?>
+
+            <nav class="menu">
+                <a href="/meu-projeto-web/public/">Início</a>
+
+                <?php if (in_array($_SESSION['usuario']['perfil'], ['administrador', 'mentor'], true)): ?>
+                    <a href="/meu-projeto-web/public/alunos">Alunos</a>
+                <?php endif; ?>
+
+                <a href="/meu-projeto-web/public/concursos">Concursos</a>
+                <a href="/meu-projeto-web/public/disciplinas">Disciplinas</a>
+                <a href="/meu-projeto-web/public/relatorios">Relatórios</a>
+
+                <span class="usuario-logado">
+                    <?= htmlspecialchars($_SESSION['usuario']['nome']) ?>
+                    (<?= htmlspecialchars(ucfirst($_SESSION['usuario']['perfil'])) ?>)
+                </span>
+
+                <a
+                    class="link-sair"
+                    href="/meu-projeto-web/public/logout"
+                >
+                    Sair
+                </a>
+            </nav>
+
+        <?php endif; ?>
     </div>
 </header>
 
