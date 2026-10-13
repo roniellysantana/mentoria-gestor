@@ -8,11 +8,16 @@
 </section>
 
 <section class="painel">
-    <article class="card">
-        <h3>Alunos</h3>
-        <p>Gerencie os alunos cadastrados na mentoria.</p>
-        <a href="/meu-projeto-web/public/alunos">Acessar alunos</a>
-    </article>
+
+    <?php if (in_array($_SESSION['usuario']['perfil'], ['administrador', 'mentor'], true)): ?>
+
+        <article class="card">
+            <h3>Alunos</h3>
+            <p>Gerencie os alunos cadastrados na mentoria.</p>
+            <a href="/meu-projeto-web/public/alunos">Acessar alunos</a>
+        </article>
+
+    <?php endif; ?>
 
     <article class="card">
         <h3>Concursos</h3>
@@ -31,4 +36,5 @@
         <p>Acompanhe os relatórios semanais e quinzenais.</p>
         <a href="/meu-projeto-web/public/relatorios">Acessar relatórios</a>
     </article>
+
 </section>
