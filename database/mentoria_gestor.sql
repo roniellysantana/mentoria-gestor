@@ -16,3 +16,13 @@ CREATE TABLE IF NOT EXISTS alunos (
     status ENUM('ativo', 'inativo') NOT NULL DEFAULT 'ativo',
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    perfil ENUM('administrador', 'mentor', 'aluno') NOT NULL,
+    status ENUM('ativo', 'inativo') NOT NULL DEFAULT 'ativo',
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
