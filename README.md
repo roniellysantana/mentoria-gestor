@@ -32,9 +32,9 @@ Independentemente do tema escolhido, a versão final da aplicação deverá cont
 - [x] Sistema próprio de gerenciamento de Rotas amigáveis.
 - [x] Operações CRUD completas para a entidade principal do escopo.
 - [x] Validações básicas de formulários.
-- [ ] Sistema de Autenticação completo (*Login* e *Logout*).
-- [ ] Controle de Sessões ativo e persistência de estado segura.
-- [ ] Controle de acesso baseado em Perfis (Mínimo: *Administrador* e *Usuário Comum*).
+- [x] Sistema de Autenticação completo (*Login* e *Logout*).
+- [x] Controle de Sessões ativo e persistência de estado segura.
+- [x] Controle de acesso baseado em Perfis (Mínimo: *Administrador* e *Usuário Comum*).
 - [ ] Funcionalidade de manipulação e *upload* de arquivos.
 - [ ] Mecanismos adicionais de tratamento de erros, exceções e segurança de dados.
 - [x] Interface web funcional.
@@ -162,3 +162,37 @@ POST /alunos/excluir     → Exclusão
 ```
 
 Com esta etapa, o gerenciamento da entidade principal do MentoriaGestor passa a contemplar as quatro operações básicas do CRUD.
+
+
+## Entrega Parcial 5
+
+Nesta etapa foi implementado o sistema de autenticação e controle de acesso do MentoriaGestor.
+
+### Funcionalidades implementadas
+
+- Login de usuários por e-mail e senha;
+- Logout com encerramento da sessão;
+- Controle de sessão com PHP;
+- Regeneração do identificador da sessão após autenticação;
+- Perfis de usuário: administrador, mentor e aluno;
+- Proteção das rotas do sistema para usuários não autenticados;
+- Restrição da área de gerenciamento de alunos aos perfis administrador e mentor;
+- Menu e painel inicial adaptados conforme o perfil do usuário;
+- Tela personalizada para acesso negado;
+- Armazenamento seguro de senhas com `password_hash()`;
+- Verificação de senha com `password_verify()`;
+- Bloqueio de usuários inativos no processo de autenticação.
+
+### Rotas de autenticação
+
+```text
+GET  /login   → Tela de login
+POST /login   → Autenticação do usuário
+GET  /logout  → Encerramento da sessão
+```
+
+### Controle de acesso
+
+O sistema utiliza sessão para identificar o usuário autenticado e seu perfil. Usuários não autenticados são direcionados para a tela de login. Áreas restritas verificam também o perfil do usuário antes de permitir o acesso.
+
+Com esta etapa, o MentoriaGestor passa a contar com autenticação, sessões, perfis de usuário e proteção de rotas.
