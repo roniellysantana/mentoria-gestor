@@ -1,19 +1,28 @@
 <?php
 
+session_start();
+
 require_once __DIR__ . '/../core/Controller.php';
 require_once __DIR__ . '/../core/Router.php';
+require_once __DIR__ . '/../core/Auth.php';
 
 require_once __DIR__ . '/../config/database.php';
 
 require_once __DIR__ . '/../app/Models/Aluno.php';
+require_once __DIR__ . '/../app/Models/Usuario.php';
 
 require_once __DIR__ . '/../app/Controllers/HomeController.php';
+require_once __DIR__ . '/../app/Controllers/AuthController.php';
 require_once __DIR__ . '/../app/Controllers/AlunoController.php';
 require_once __DIR__ . '/../app/Controllers/ConcursoController.php';
 require_once __DIR__ . '/../app/Controllers/DisciplinaController.php';
 require_once __DIR__ . '/../app/Controllers/RelatorioController.php';
 
 $router = new Router();
+
+$router->get('/login', [AuthController::class, 'login']);
+$router->post('/login', [AuthController::class, 'autenticar']);
+$router->get('/logout', [AuthController::class, 'logout']);
 
 $router->get('/', [HomeController::class, 'index']);
 
